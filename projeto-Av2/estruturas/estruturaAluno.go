@@ -1,14 +1,7 @@
-package main
-import 
-(
-	"fmt"
-	"estruturas/estruturaNota.go"
-)
+package estruturas
 
-func main(){
-	type Aluno struct {
-		nome string
-		matricula int		
-		nota Nota
-	}
+type Aluno struct {
+	nome      string
+	matricula int
+	nota      Nota
 }

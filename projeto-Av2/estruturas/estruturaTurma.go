@@ -1,13 +1,6 @@
-package main
-import
-(
-	"fmt"
-	"estruturas/estruturaAluno.go"
-) 
+package estruturas
 
-func main(){
-	type Turma struct {
-		numero int
-	    alunos[]Alunos{}
-	}
+type Turma struct {
+	numero int
+	alunos []Aluno
 }
