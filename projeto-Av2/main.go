@@ -1,6 +1,7 @@
 package main
 
 import (
+	e "TrabalhoAv2Clp/projeto-Av2/estruturas"
 	"fmt"
 )
 
@@ -22,7 +23,7 @@ func main() {
 			cadastrarTurma()
 			break
 		case 2:
-			verEstatisticas()
+			verEstatisticas(nil)
 			break
 		}
 
@@ -36,6 +37,34 @@ func cadastrarTurma() {
 	fmt.Println("Cadastro de turma......")
 }
 
-func verEstatisticas() {
-	fmt.Println("Ver estatísticas.....")
+func verEstatisticas(turmas []e.Turma) {
+	fmt.Println("Informe o número da turma")
+	fmt.Println("Opções: ")
+	for _, turma := range turmas {
+		fmt.Printf("%d, ", turma.Numero)
+	}
+	fmt.Printf("\n")
+	var opcao int
+	fmt.Print("Turma: ")
+	fmt.Scanln(&opcao)
+
+	var t e.Turma
+	t.Numero = 0
+
+	for _, turma := range turmas {
+
+		if turma.Numero == opcao {
+			t = turma
+		}
+
+	}
+
+	if t.Numero != 0 {
+		t.ExibirRelatario()
+
+	} else {
+		fmt.Println("Turma não encontrada para o número informado!")
+
+	}
+
 }
