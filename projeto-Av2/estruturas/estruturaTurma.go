@@ -2,11 +2,12 @@ package estruturas
 
 type Turma struct {
 	numero int
-	alunos []Aluno
+	alunos []Aluno // Nao seria "alunos := make([]Aluno, 5)"?
 }
 
 func (turma *Turma) adicionarAluno(aluno Aluno) {
 	//atribuir aluno ao slide aluno da turma
+	turma.alunos = append(alunos, aluno)
 }
 
 func (turma *Turma) quantidadeDeAlunos() float64 {

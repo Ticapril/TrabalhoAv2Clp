@@ -12,6 +12,16 @@ func (nota *Nota) atribuirNota(av1, av2, av3 float64) {
 }
 
 func (nota *Nota) calcularMedia() float64 {
-	return 0
+	if nota.av3 == 0 {
+		return (nota.av1 + nota.av2) / 2
+	} else {
+		if nota.av3 > nota.av1 {
+			return (nota.av3 + nota.av2) / 2
+		} else if nota.av3 > nota.av2 {
+			return (nota.av3 + nota.av1) / 2
+		} else {
+			return (nota.av1 + nota.av2) / 2
+		}
+	}
 	//Calcular a média considerando as três notas
 }
