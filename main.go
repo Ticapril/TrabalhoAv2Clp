@@ -1,7 +1,7 @@
 package main
 
 import (
-	e "TrabalhoAv2Clp/estruturas"
+	e "estruturas"
 	"fmt"
 )
 
