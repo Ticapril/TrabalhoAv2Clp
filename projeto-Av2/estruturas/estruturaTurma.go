@@ -9,6 +9,7 @@ type Turma struct {
 
 func (turma *Turma) AdicionarAluno(aluno Aluno) {
 	//atribuir aluno ao slide aluno da turma
+	turma.alunos = append(alunos, aluno)
 }
 
 func (turma *Turma) QuantidadeDeAlunos() int {
