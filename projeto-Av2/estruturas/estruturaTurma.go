@@ -9,9 +9,9 @@ func (turma *Turma) adicionarAluno(aluno Aluno) {
 	//atribuir aluno ao slide aluno da turma
 }
 
-func (turma *Turma) quantidadeDeAlunos() float64 {
+func (turma *Turma) quantidadeDeAlunos() int {
 	//calcular a quantidade de alunos na turma
-	return 0
+	return int(len(turma.alunos))
 }
 
 func (turma *Turma) calcularMediaGeral() float64 {
