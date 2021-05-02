@@ -78,8 +78,8 @@ func (turma *Turma) ExibirRelatario() {
 
 	for _, aluno := range alunosOrdenados {
 
-		fmt.Printf("%s\t%s\t%.2f\t%2.f\t%.2f\t%.2f\t%s\n", aluno.Matricula, aluno.Nome,
-			aluno.Nota.Av1, aluno.Nota.Av2, aluno.Nota.Av3, aluno.CalcularMedia(), aluno.VerificarSituacao())
+		fmt.Printf("%s\t%s\t%.2f\t%2.f\t%.2f\t%.2f\t%s\n", aluno.matricula, aluno.nome,
+			aluno.nota.Av1, aluno.nota.Av2, aluno.nota.Av3, aluno.CalcularMedia(), aluno.VerificarSituacao())
 
 		println("----------------------------------------------------------------------------")
 

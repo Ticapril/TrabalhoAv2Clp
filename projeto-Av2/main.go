@@ -5,6 +5,8 @@ import (
 	"fmt"
 )
 
+var turmas []e.Turma
+
 func main() {
 
 	fmt.Println("Calculador de Estatísticas de Notas Sobre uma Turma!")
@@ -33,7 +35,7 @@ func main() {
 	fmt.Println("Obrigado por utilizar o programa!")
 }
 
-func (turma *Turma) cadastrarTurma() {
+func cadastrarTurma() {
 	var numeroTurma uint8
 	var nome, matricula string
 	var av1, av2, av3 float64
@@ -42,9 +44,9 @@ func (turma *Turma) cadastrarTurma() {
 	turma.numero = numeroTurma //atribuição ao numero da turma
 
 	for i, elemento := range turma.alunos { //atribuindo alunos na turma
-		println("Entre com o nome do aluno")
-		scanf("%s", nome)
-		println("Entre com a matricula do aluno")
+		fmt.Println("Entre com o nome do aluno")
+		fmt.Scanf("%s", nome)
+		fmt.Println("Entre com a matricula do aluno")
 		scanf("%s", matricula)
 		println("Entre com a nota da av1")
 		scanf("%s", &av1)
