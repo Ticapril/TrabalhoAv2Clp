@@ -12,7 +12,7 @@ func (nota *Nota) AtribuirNota(av1, av2, av3 float64) {
 	nota.av1 = av1
 	nota.av2 = av2
 	nota.av3 = av3
-	nota.media = (av1 + av2 + av3)/3  
+	nota.media.calcularMedia()
 }
 
 func (nota *Nota) calcularMedia() float64 {
