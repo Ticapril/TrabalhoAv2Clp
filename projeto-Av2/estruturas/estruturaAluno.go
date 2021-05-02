@@ -10,7 +10,7 @@ func (aluno *Aluno) atribuirDados(nome, matricula string, av1, av2, av3 float64)
 	//atribuir os valores a aluno e as notas dele utilizando o método atribuirNota
 	aluno.nome = nome
 	aluno.matricula = matricula
-	aluno.nota = nota.atribuirNota(av1, av2, av3)
+	aluno.nota.atribuirNota(av1, av2, av3)
 }
 
 func (aluno *Aluno) CalcularMedia() float64 {

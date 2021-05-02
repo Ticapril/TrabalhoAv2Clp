@@ -12,9 +12,9 @@ func (turma *Turma) AdicionarAluno(aluno Aluno) {
 	turma.alunos = append(alunos, aluno)
 }
 
-func (turma *Turma) QuantidadeDeAlunos() int {
+func (turma *Turma) quantidadeDeAlunos() int {
 	//calcular a quantidade de alunos na turma
-	return 0
+	return int(len(turma.alunos))
 }
 
 func (turma *Turma) CalcularMediaGeral() float64 {
