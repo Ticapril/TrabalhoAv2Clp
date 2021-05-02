@@ -44,7 +44,6 @@ func (turma *Turma) CalcularMediaDaTurma() float64 {
 }
 
 func ordenarNotas(alunos []Aluno) []Aluno {
-	// ordernar da maior pra a menor média as notas dos alunos
 	if len(alunos) <= 1 {
 		return alunos
 	}
@@ -60,33 +59,34 @@ func ordenarNotas(alunos []Aluno) []Aluno {
 	var menores []Aluno
 	var maiores []Aluno
 
-	for _, n := range alunos {
+	for _, a := range n {
 
-		if n.nota.media <= pivo.nota.media {
-			menores = append(menores, n)
+		if a.nota.media <= pivo.nota.media {
+			menores = append(menores, a)
 		} else {
-			maiores = append(maiores, n)
+			maiores = append(maiores, a)
 		}
 
 	}
 
-	return append(append(ordenarNotas(menores), pivo), ordenarNotas(maiores)...)
+	return append(append(ordenarNotas(maiores), pivo), ordenarNotas(menores)...)
 }
 
 func (turma *Turma) ExibirRelatario() {
+	fmt.Printf("\n")
 	fmt.Printf("Relatório da Turma: %d\n", turma.numero)
 	fmt.Printf("Quantidade de Aluno: %d\n", turma.QuantidadeDeAlunos())
 	fmt.Printf("Média Geral da Turma: %.2f\n", turma.CalcularMediaDaTurma())
 
 	fmt.Println("Dados dos Alunos:")
-	fmt.Println("------------------------------------------------------------------------")
-	fmt.Printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", "Matricula", "Nome", "AV1", "AV2", "AV3", "Média", "Situação")
+	fmt.Println("------------------------------------------------------------------------------------------")
+	fmt.Printf("%s\t%s\t\t\t%s\t%s\t%s\t%s\t%s\n", "Matricula", "Nome", "AV1", "AV2", "AV3", "Média", "Situação")
 
 	var alunosOrdenados = ordenarNotas(turma.alunos)
 
 	for _, aluno := range alunosOrdenados {
 
-		fmt.Printf("%s\t%s\t%.2f\t%2.f\t%.2f\t%.2f\t%s\n", aluno.matricula, aluno.nome,
+		fmt.Printf("%s\t%s\t%.2f\t%.2f\t%.2f\t%.2f\t%s\n", aluno.matricula, aluno.nome,
 			aluno.nota.av1, aluno.nota.av2, aluno.nota.av3, aluno.nota.media, aluno.verificarSituacao())
 
 	}
