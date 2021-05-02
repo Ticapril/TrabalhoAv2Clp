@@ -7,14 +7,9 @@ type Aluno struct {
 }
 
 func (aluno *Aluno) AtribuirDados(nome, matricula string, av1, av2, av3 float64) {
-	//atribuir os valores a aluno e as notas dele utilizando o método atribuirNota
 	aluno.nome = nome
 	aluno.matricula = matricula
-	aluno.nota.atribuirNota(av1, av2, av3)
-}
-
-func (aluno *Aluno) CalcularMedia() float64 {
-	return aluno.nota.calcularMedia()
+	aluno.nota.AtribuirNota(av1, av2, av3)
 }
 
 func (aluno *Aluno) verificarSituacao() string {
@@ -23,5 +18,4 @@ func (aluno *Aluno) verificarSituacao() string {
 	} else {
 		return "Reprovado"
 	}
-	//verifica se o aluno está aprovado ou reprovado
 }

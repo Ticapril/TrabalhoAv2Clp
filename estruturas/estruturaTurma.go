@@ -3,26 +3,39 @@ package estruturas
 import "fmt"
 
 type Turma struct {
-	Numero int
-	Alunos []Aluno
+	numero int
+	alunos []Aluno
+}
+
+func (turma *Turma) DefinirNumero(numero int) {
+	turma.numero = numero
+}
+
+func (turma *Turma) ObterNumero() int {
+	return turma.numero
+}
+
+func (turma *Turma) ObterAlunos() []Aluno {
+	return turma.alunos
+}
+
+func (turma *Turma) DefinirAlunos(alunos []Aluno) {
+	turma.alunos = alunos
 }
 
 func (turma *Turma) AdicionarAluno(aluno Aluno) {
-	//atribuir aluno ao slide aluno da turma
-	turma.alunos = append(alunos, aluno)
+	turma.alunos = append(turma.alunos, aluno)
 }
 
-func (turma *Turma) quantidadeDeAlunos() int {
-	//calcular a quantidade de alunos na turma
-	return int(len(turma.alunos))
+func (turma *Turma) QuantidadeDeAlunos() int {
+	return len(turma.alunos)
 }
 
-func (turma *Turma) CalcularMediaGeral() float64 {
-	//calcular a média geral. calculo: soma de todas as médias dividido pela quantidade de alunos
+func (turma *Turma) CalcularMediaDaTurma() float64 {
 	var somatorio = 0.00
 
-	for _, aluno := range turma.Alunos {
-		somatorio += aluno.CalcularMedia()
+	for _, aluno := range turma.alunos {
+		somatorio += aluno.nota.media
 	}
 
 	var media = somatorio / float64(turma.QuantidadeDeAlunos())
@@ -49,7 +62,7 @@ func ordenarNotas(alunos []Aluno) []Aluno {
 
 	for _, n := range alunos {
 
-		if n.CalcularMedia() <= pivo.CalcularMedia() {
+		if n.nota.media <= pivo.nota.media {
 			menores = append(menores, n)
 		} else {
 			maiores = append(maiores, n)
@@ -61,30 +74,21 @@ func ordenarNotas(alunos []Aluno) []Aluno {
 }
 
 func (turma *Turma) ExibirRelatario() {
-	//Exibir um relatório contendo:
-	//Número da Turma
-	//Quantidade de alunos
-	//Média da Turma
-	//Dados dos Alunos:
-	// matricula -> nome -> av1 -> av2 -> av3 -> media -> aprovado ou reprovado
-	fmt.Printf("Relatório da Turma: %d\n", turma.Numero)
+	fmt.Printf("Relatório da Turma: %d\n", turma.numero)
 	fmt.Printf("Quantidade de Aluno: %d\n", turma.QuantidadeDeAlunos())
-	fmt.Printf("Média Geral da Turma: %.2f\n", turma.CalcularMediaGeral())
+	fmt.Printf("Média Geral da Turma: %.2f\n", turma.CalcularMediaDaTurma())
+
 	fmt.Println("Dados dos Alunos:")
 	fmt.Println("------------------------------------------------------------------------")
 	fmt.Printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", "Matricula", "Nome", "AV1", "AV2", "AV3", "Média", "Situação")
 
-	var alunosOrdenados = ordenarNotas(turma.Alunos)
+	var alunosOrdenados = ordenarNotas(turma.alunos)
 
 	for _, aluno := range alunosOrdenados {
 
 		fmt.Printf("%s\t%s\t%.2f\t%2.f\t%.2f\t%.2f\t%s\n", aluno.matricula, aluno.nome,
-			aluno.nota.Av1, aluno.nota.Av2, aluno.nota.Av3, aluno.CalcularMedia(), aluno.VerificarSituacao())
-
-		println("----------------------------------------------------------------------------")
+			aluno.nota.av1, aluno.nota.av2, aluno.nota.av3, aluno.nota.media, aluno.verificarSituacao())
 
 	}
-
-	println("----------------------------------------------------------------------------")
 
 }
